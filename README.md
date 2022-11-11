@@ -25,4 +25,6 @@ or
 	- [Plugins](https://github.com/LunarVim/Neovim-from-scratch.git)
 
 
+### Prompt
+* [Starship](https://starship.rs)
 

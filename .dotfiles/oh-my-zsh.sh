@@ -2,20 +2,6 @@
     # Initialization code that may require console input (password prompts, [y/n]
     # confirmations, etc.) must go above this block; everything else may go below.
 
-    if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-    ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
-        if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-          source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-        fi
-        POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-        # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-        # ZSH_THEME="powerlevel10k/powerlevel10k"
-    ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
-    fi
-
-
     # If you come from bash you might have to change your $PATH.
     # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -26,6 +12,7 @@
     # load a random theme each time oh-my-zsh is loaded, in which case,
     # to know which specific one was loaded, run: echo $RANDOM_THEME
     # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+    ZSH_THEME="robbyrussell"
     # ZSH_THEME="spaceship"
 
     # Set list of themes to pick from when loading at random
@@ -89,13 +76,17 @@
     # Example format: plugins=(rails git textmate ruby lighthouse)
     # Add wisely, as too many plugins slow down shell startup.
     plugins=(
+        aliases
         # https://github.com/TamCore/autoupdate-oh-my-zsh-plugins
         autoupdate
         brew
         command-not-found
+        extract
         git
         gitfast
         macos
+        # https://github.com/zsh-users/zsh-history-substring-search
+        history-substring-search
         pip
         python
         sublime
@@ -107,8 +98,6 @@
         you-should-use
         # https://github.com/zsh-users/zsh-autosuggestions
         zsh-autosuggestions
-        # https://github.com/zsh-users/zsh-history-substring-search
-        zsh-history-substring-search
         zsh-syntax-highlighting)
 
     source $ZSH/oh-my-zsh.sh
@@ -145,3 +134,4 @@
     ZSH_CUSTOM_AUTOUPDATE_QUIET=true
     # TheFuck plugin
     eval $(thefuck --alias)
+

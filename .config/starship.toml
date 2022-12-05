@@ -10,9 +10,12 @@ $git_metrics\
 $fill\
 $python\
 $nodejs\
-$cmd_duration $jobs $time\
+$cmd_duration\
+$jobs\
+$time\
 $line_break\
-$character"""
+$character
+"""
 
 
 # Shows an icon that should be included by zshrc script based on the distribution or os
@@ -26,12 +29,13 @@ success_symbol = "[➜](bold green) "
 error_symbol = "[✗](bold red) "
 
 [cmd_duration]
-format = "[$duration]($style)"
+format = "[$duration]($style) "
 style = "yellow"
 
 [directory]
-format = " [$path]($style)[$read_only]($read_only_style) "
-style = "light blue"
+format = "[$path]($style)[$read_only]($read_only_style) "
+style = "bold magenta"
+home_symbol = " ~"
 read_only = " "
 truncation_length = 2
 truncation_symbol = "…/"

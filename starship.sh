@@ -38,5 +38,5 @@ esac
 export STARSHIP_DISTRO="$ICON"
 
 # Starship
-eval "$(starship init zsh)"
+eval "$(starship init $SHELL)"
 

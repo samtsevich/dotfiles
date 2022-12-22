@@ -12,8 +12,6 @@ To display icons in terminal or applications Fonts, I'm using [Nerd-Fonts](https
 
 ### Terminal
 * [iTerm 2](https://iterm2.com)
-or
-* [Warp](https://www.warp.dev)
 
 ### Oh My ZSH/BASH
 - [Oh My ZSH](https://github.com/ohmyzsh/ohmyzsh)
@@ -32,9 +30,16 @@ or
 
 ## Installation
 
+### Step 0. Clone
+
+```
+cd
+git clone https://github.com/samtsevich/dotfiles ~/.dotfiles
+```
+
 ### Step 1. Shell
 
-If you use `zsh` then add following lines into `~/.zshrc` file
+#### If you use `zsh` then add following lines into `~/.zshrc` file
 ```
 ## Languages
 LANG=en_US.utf-8
@@ -47,8 +52,8 @@ LC_ALL=en_US.utf-8
 
 ```
 
-If you use `bash` then add following lines into `~/.bashrc` file
 
+#### If you use `bash` then add following lines into `~/.bashrc` file
 ```
 ## Languages
 LANG=en_US.utf-8
@@ -65,7 +70,7 @@ LC_ALL=en_US.utf-8
 Making alias to the `~/.gitconfig` file
 
 ```
-ls -s ~/.dotfiles/.gitconfig  ~/.gitconfig
+ln -s ~/.dotfiles/.gitconfig  ~/.gitconfig
 ```
 
 
@@ -74,8 +79,6 @@ ls -s ~/.dotfiles/.gitconfig  ~/.gitconfig
 Making alias to the `~/.config/starship.toml` file
 
 ```
-ls -s ~/.dotfiles/config/starship.toml  ~/.config/starship.toml
+ln -s ~/.dotfiles/config/starship.toml  ~/.config/starship.toml
 ```
-
-
 

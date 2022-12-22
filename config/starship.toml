@@ -1,21 +1,19 @@
 format = """
 $env_var\
 $username\
-$hostname\
 $directory\
 $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
 $fill\
+$conda\
 $python\
-$nodejs\
-$cmd_duration\
-$jobs\
+$cmd_durationration $jobs\
+$hostname\
 $time\
 $line_break\
-$character
-"""
+$character"""
 
 
 # Shows an icon that should be included by zshrc script based on the distribution or os
@@ -29,12 +27,16 @@ success_symbol = "[➜](bold green) "
 error_symbol = "[✗](bold red) "
 
 [cmd_duration]
-format = "[$duration]($style) "
+format = "[$duration]($style)"
 style = "yellow"
 
+[conda]
+ignore_base = false
+format = "[$symbol$environment](dimmed green) "
+
 [directory]
-format = "[$path]($style)[$read_only]($read_only_style) "
-style = "bold magenta"
+format = " [$path]($style)[$read_only]($read_only_style) "
+style = "light blue"
 home_symbol = " ~"
 read_only = " "
 truncation_length = 2
@@ -55,7 +57,7 @@ format = "[$symbol$branch]($style) "
 style = "bright-black"
 
 [git_metrics]
-disabled = true
+disabled = false
 
 [git_status]
 format = '([\[$conflicted$deleted$renamed$modified$staged$untracked\]]($style) )'
@@ -66,11 +68,14 @@ style = "cyan"
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
+[hostname]
+format = "[$ssh_symbol$hostname]($style) "
+
 [memory_usage]
 symbol = " "
 
 [python]
-symbol = ' '
+symbol = ' '
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [rust]
@@ -79,4 +84,10 @@ symbol = " "
 [time]
 disabled = false
 style = "bold white"
-format = " [$time]($style)"
+format = " [$time]($style) "
+
+[username]
+format = "[$user]($style) "
+
+
+

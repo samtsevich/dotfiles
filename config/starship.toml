@@ -55,10 +55,11 @@ format = "[$symbol$branch]($style) "
 style = "bright-black"
 
 [git_metrics]
-disabled = false
+disabled = true
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style) )'
+format = '([\[$conflicted$deleted$renamed$modified$staged$untracked\]]($style) )'
+# format = '([\[$all_status$ahead_behind\]]($style) )'
 style = "cyan"
 
 [git_state]
@@ -69,6 +70,7 @@ style = "bright-black"
 symbol = " "
 
 [python]
+symbol = ' '
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [rust]
@@ -77,4 +79,4 @@ symbol = " "
 [time]
 disabled = false
 style = "bold white"
-format = "[$time]($style) "
+format = " [$time]($style)"

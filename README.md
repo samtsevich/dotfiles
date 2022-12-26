@@ -39,46 +39,38 @@ git clone https://github.com/samtsevich/dotfiles ~/.dotfiles
 
 ### Step 1. Shell
 
-#### If you use `zsh` then add following lines into `~/.zshrc` file
+#### Common for all. Must be added either into `~/.zshrc` or `~/.bashrc` file.
+
 ```
 ## Languages
 LANG=en_US.utf-8
 LC_ALL=en_US.utf-8
 
 [[ -f ~/.dotfiles/aliases.sh ]] && source ~/.dotfiles/aliases.sh
-[[ -f ~/.dotfiles/ohmyzsh.sh ]] && source ~/.dotfiles/ohmyzsh.sh
 [[ -f ~/.dotfiles/path.sh ]] && source ~/.dotfiles/path.sh
 [[ -f ~/.dotfiles/starship.sh ]] && source ~/.dotfiles/starship.sh
 
 ```
 
+#### If you use `zsh` then add following lines into `~/.zshrc` file
+
+```
+[[ -f ~/.dotfiles/ohmyzsh.sh ]] && source ~/.dotfiles/ohmyzsh.sh
+```
 
 #### If you use `bash` then add following lines into `~/.bashrc` file
 ```
-## Languages
-LANG=en_US.utf-8
-LC_ALL=en_US.utf-8
-
-[[ -f ~/.dotfiles/aliases.sh ]] && source ~/.dotfiles/aliases.sh
 [[ -f ~/.dotfiles/ohmybash.sh ]] && source ~/.dotfiles/ohmybash.sh
-[[ -f ~/.dotfiles/path.sh ]] && source ~/.dotfiles/path.sh
-[[ -f ~/.dotfiles/starship.sh ]] && source ~/.dotfiles/starship.sh
 ```
 
-### Step 2. Gitconfig
+### Step 2. Config files
 
-Making alias to the `~/.gitconfig` file
+- Gitconfig (do not forget to write personal data into `~/.gitconfig.local` file)
+- Starship
+
 
 ```
 ln -s ~/.dotfiles/.gitconfig  ~/.gitconfig
-```
-
-
-### Step 3. Starship
-
-Making alias to the `~/.config/starship.toml` file
-
-```
 ln -s ~/.dotfiles/config/starship.toml  ~/.config/starship.toml
 ```
 

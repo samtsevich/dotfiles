@@ -15,6 +15,7 @@ $time\
 $line_break\
 $character"""
 
+command_timeout = 1000
 
 # Shows an icon that should be included by zshrc script based on the distribution or os
 [env_var.STARSHIP_DISTRO]

@@ -49,6 +49,7 @@ LC_ALL=en_US.utf-8
 [[ -f ~/.dotfiles/aliases.sh ]] && source ~/.dotfiles/aliases.sh
 [[ -f ~/.dotfiles/path.sh ]] && source ~/.dotfiles/path.sh
 [[ -f ~/.dotfiles/starship.sh ]] && source ~/.dotfiles/starship.sh
+[[ -f ~/.dotfiles/local.sh ]] && source ~/.dotfiles/local.sh
 
 ```
 
@@ -62,6 +63,8 @@ LC_ALL=en_US.utf-8
 ```
 [[ -f ~/.dotfiles/ohmybash.sh ]] && source ~/.dotfiles/ohmybash.sh
 ```
+
+For the local environmnet of your machine – please, update `~/.dotfiles/local.sh` file. There you can add anything you want.
 
 ### Step 2. Config files
 

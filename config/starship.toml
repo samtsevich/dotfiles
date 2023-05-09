@@ -42,8 +42,9 @@ format = "[$symbol$environment](dimmed green) "
 
 [directory]
 # format = " [$path]($style)[$read_only]($read_only_style) "
-format = " at [$path]($style)[$read_only]($read_only_style) "
-style = "light blue"
+format = "at [$path]($style)[$read_only]($read_only_style) "
+# style = "light blue"
+style = "bold cyan"
 home_symbol = " ~"
 read_only = " "
 truncation_length = 2
@@ -90,6 +91,7 @@ symbol = " "
 
 [time]
 disabled = false
+time_format = "%R"
 style = "bold white"
 format = " [$time]($style) "
 

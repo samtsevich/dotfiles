@@ -78,6 +78,7 @@
         brew
         command-not-found
         extract
+        fd
         git
         gitfast
         macos

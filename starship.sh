@@ -3,9 +3,10 @@
 ## and then adapted to my purposes
 
 # find out which distribution we are running on
-LFILE="/etc/*-release"
+LFILE="/etc/lsb-release"
 MFILE="/System/Library/CoreServices/SystemVersion.plist"
-if ls $LFILE 1> /dev/null 2>&1; then
+# if ls $LFILE 1> /dev/null 2>&1; then
+if [[ -f $LFILE ]]; then
   _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 
   _device=$(hostnamectl | grep 'Chassis' | awk '/Chassis/ {print $2}')

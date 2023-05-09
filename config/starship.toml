@@ -23,6 +23,11 @@ format = '[$env_value](white) '
 variable = "STARSHIP_DISTRO"
 disabled = false
 
+[env_var.STARSHIP_DEVICE]
+format = '[$env_value](bold yellow) '
+variable = "STARSHIP_DEVICE"
+disabled = false
+
 [character]
 success_symbol = "[➜](bold green) "
 error_symbol = "[✗](bold red) "
@@ -36,7 +41,8 @@ ignore_base = false
 format = "[$symbol$environment](dimmed green) "
 
 [directory]
-format = " [$path]($style)[$read_only]($read_only_style) "
+# format = " [$path]($style)[$read_only]($read_only_style) "
+format = " at [$path]($style)[$read_only]($read_only_style) "
 style = "light blue"
 home_symbol = " ~"
 read_only = " "

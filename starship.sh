@@ -3,7 +3,7 @@
 ## and then adapted to my purposes
 
 # find out which distribution we are running on
-LFILE="/etc/lsb-release"
+LFILE="/etc/os-release"
 MFILE="/System/Library/CoreServices/SystemVersion.plist"
 # if ls $LFILE 1> /dev/null 2>&1; then
 if [[ -f $LFILE ]]; then

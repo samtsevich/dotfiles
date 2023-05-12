@@ -19,21 +19,22 @@ or
 - [Oh My BASH](https://github.com/ohmybash/oh-my-bash)
 
 ### TextEditor
-* [Neovim](https://neovim.io)
-    - [Plugins](https://github.com/LunarVim/Neovim-from-scratch.git)
-
+* [Neovim](https://neovim.io) + [AstroNvim](https://astronvim.com)
 
 ### Prompt
 * [Starship](https://starship.rs)
 
+
+### Additional
+Install, pls
+* [FZF](https://github.com/junegunn/fzf)
 
 
 ## Installation
 
 ### Step 0. Clone
 
-```
-cd
+```bash
 git clone https://github.com/samtsevich/dotfiles ~/.dotfiles
 ```
 
@@ -41,36 +42,24 @@ git clone https://github.com/samtsevich/dotfiles ~/.dotfiles
 
 #### Common for all. Must be added either into `~/.zshrc` or `~/.bashrc` file.
 
-```
-## Languages
-LANG=en_US.utf-8
-LC_ALL=en_US.utf-8
+#### If you use `zsh` then do the following:
 
-[[ -f ~/.dotfiles/aliases.sh ]] && source ~/.dotfiles/aliases.sh
-[[ -f ~/.dotfiles/path.sh ]] && source ~/.dotfiles/path.sh
-[[ -f ~/.dotfiles/starship.sh ]] && source ~/.dotfiles/starship.sh
-[[ -f ~/.dotfiles/local.sh ]] && source ~/.dotfiles/local.sh
-
+```bash
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ```
 
-#### If you use `zsh` then add following lines into `~/.zshrc` file
-
-```
-[[ -f ~/.dotfiles/ohmyzsh.sh ]] && source ~/.dotfiles/ohmyzsh.sh
-```
-
-#### If you use `bash` then add following lines into `~/.bashrc` file
-```
-[[ -f ~/.dotfiles/ohmybash.sh ]] && source ~/.dotfiles/ohmybash.sh
+#### If you use `bash` then do the following:
+```bash
+ln -s ~/.dotfiles/.bashrc ~/.bashrc
 ```
 
-For the local environmnet of your machine – please, update `~/.dotfiles/local.sh` file. There you can add anything you want.
+For the local environment variables or exports – please, update `~/.dotfiles/local.sh` file. There you can add anything you want.
+
 
 ### Step 2. Config files
 
 - Gitconfig (do not forget to write personal data into `~/.gitconfig.local` file)
 - Starship
-
 
 ```
 ln -s ~/.dotfiles/.gitconfig  ~/.gitconfig

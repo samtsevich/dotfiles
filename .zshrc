@@ -2,9 +2,11 @@
 LANG=en_US.utf-8
 LC_ALL=en_US.utf-8
 
+[[ -f ~/.dotfiles/common/ohmyzsh.sh ]]  && source ~/.dotfiles/common/ohmyzsh.sh
 
-[[ -f ~/.dotfiles/aliases.sh ]] && source ~/.dotfiles/aliases.sh
-[[ -f ~/.dotfiles/oh-my-zsh.sh ]] && source ~/.dotfiles/oh-my-zsh.sh
-[[ -f ~/.dotfiles/path.sh ]] && source ~/.dotfiles/path.sh
-[[ -f ~/.dotfiles/starship.sh ]] && source ~/.dotfiles/starship.sh
+[[ -f ~/.dotfiles/common/apps.sh ]]     && source ~/.dotfiles/common/apps.sh
+[[ -f ~/.dotfiles/common/aliases.sh ]]  && source ~/.dotfiles/common/aliases.sh
+[[ -f ~/.dotfiles/common/path.sh ]]     && source ~/.dotfiles/common/path.sh
 
+
+[[ -f ~/.dotfiles/local.sh ]] && source ~/.dotfiles/local.sh

@@ -7,7 +7,7 @@ export _ZO_EXCLUDE_DIRS="/opt/intel/*:/work/opt/intel/*"
 if [[ $MYSHELL == *'bash'* ]]; then
     # Shell
     # [[ -f ~/.dotfiles/ohmybash.sh ]] && source ~/.dotfiles/ohmybash.sh
-    [[ -f ~/.dotfiles/bashit.sh ]] && source ~/.dotfiles/bashit.sh
+    [[ -f ~/.dotfiles/common/bashit.sh ]] && source ~/.dotfiles/common/bashit.sh
 
     # FZF
     [ -f ~/.fzf.bash ] && source ~/.fzf.bash

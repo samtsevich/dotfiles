@@ -62,7 +62,7 @@ format = "[$symbol]($style)"
 
 [git_branch]
 format = "[$symbol$branch]($style) "
-style = "bright-black"
+style = "bright-green"
 
 [git_metrics]
 disabled = false

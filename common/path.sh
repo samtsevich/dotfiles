@@ -14,6 +14,8 @@ if [[ -d $PYENV_ROOT ]]; then
   export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+
 ##################
 ###### LIBS ######
 ##################

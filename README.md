@@ -40,17 +40,17 @@ git clone https://github.com/samtsevich/dotfiles ~/.dotfiles
 
 ### Step 1. Shell
 
-#### Common for all. Must be added either into `~/.zshrc` or `~/.bashrc` file.
+<!-- #### Common for all. Must be added either into `~/.zshrc` or `~/.bashrc` file. -->
 
 #### If you use `zsh` then do the following:
 
 ```bash
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.profile ~/.zshrc
 ```
 
 #### If you use `bash` then do the following:
 ```bash
-ln -s ~/.dotfiles/.bashrc ~/.bashrc
+ln -s ~/.dotfiles/.profile ~/.bashrc
 ```
 
 For the local environment variables or exports – please, update `~/.dotfiles/local.sh` file. There you can add anything you want.

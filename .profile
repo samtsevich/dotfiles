@@ -2,8 +2,6 @@
 LANG=en_US.utf-8
 LC_ALL=en_US.utf-8
 
-[[ -f ~/.dotfiles/common/ohmyzsh.sh ]]  && source ~/.dotfiles/common/ohmyzsh.sh
-
 [[ -f ~/.dotfiles/common/path.sh ]]     && source ~/.dotfiles/common/path.sh
 [[ -f ~/.dotfiles/common/aliases.sh ]]  && source ~/.dotfiles/common/aliases.sh
 [[ -f ~/.dotfiles/common/apps.sh ]]     && source ~/.dotfiles/common/apps.sh

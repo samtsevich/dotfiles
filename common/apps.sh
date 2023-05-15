@@ -1,9 +1,10 @@
 # [[ $MYSHELL == *"zsh"* ]] && echo "Equal" || echo "Not equal"
 MYSHELL=`echo $SHELL`
 
+export _ZO_EXCLUDE_DIRS="/opt/intel/*:/work/opt/intel/*"
+
 # Zoxide and FZF
 if [[ $MYSHELL == *'bash'* ]]; then
-
     # Shell
     # [[ -f ~/.dotfiles/ohmybash.sh ]] && source ~/.dotfiles/ohmybash.sh
     [[ -f ~/.dotfiles/bashit.sh ]] && source ~/.dotfiles/bashit.sh

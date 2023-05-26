@@ -66,9 +66,9 @@ format = "[$symbol$branch]($style) "
 style = "bright-green"
 
 [git_commit]
-format = '[\($tag\)]($style) '
+format = '[$tag]($style) '
 commit_hash_length = 4
-tag_symbol = '🔖 '
+# tag_symbol = '🔖 '
 tag_disabled = false
 
 [git_metrics]

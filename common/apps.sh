@@ -18,11 +18,20 @@ if [[ $MYSHELL == *'bash'* ]]; then
     # Zoxide
     eval "$(zoxide init bash)"
 elif [[ $MYSHELL == *'zsh'* ]]; then
+    export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
     # Ohmyzsh
     [[ -f ~/.dotfiles/common/ohmyzsh.sh ]]  && source ~/.dotfiles/common/ohmyzsh.sh
 
     # FZF
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+    if type brew &>/dev/null
+    then
+        FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+        autoload -Uz compinit
+        compinit
+    fi
 
     # Zoxide
     eval "$(zoxide init zsh)"

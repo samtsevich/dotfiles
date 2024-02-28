@@ -42,7 +42,11 @@ fi
 [[ -f ~/.dotfiles/common/starship.sh ]] && source ~/.dotfiles/common/starship.sh
 
 # Cargo
-source $HOME/.cargo/env
+if [[ -d $HOME/.cargo ]]; then
+  source $HOME/.cargo/env
+  # export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 
 # Pyenv
 PYENV_ROOT="$HOME/.pyenv"

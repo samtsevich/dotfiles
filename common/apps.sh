@@ -32,6 +32,9 @@ fi
 # Starship
 [[ -f ~/.dotfiles/common/starship.sh ]] && source ~/.dotfiles/common/starship.sh
 
+# Cargo
+source $HOME/.cargo/env
+
 # Pyenv
 PYENV_ROOT="$HOME/.pyenv"
 

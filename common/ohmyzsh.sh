@@ -95,6 +95,7 @@
         you-should-use
         # https://github.com/zsh-users/zsh-autosuggestions
         zsh-autosuggestions
+        zsh-fzf-history-search
         zsh-syntax-highlighting)
 
     source $ZSH/oh-my-zsh.sh

@@ -16,7 +16,7 @@ if [[ $MYSHELL == *'bash'* ]]; then
     [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
     # Zoxide
-    eval "$(zoxide init bash)"
+    eval "$(zoxide init --cmd cd bash)"
 elif [[ $MYSHELL == *'zsh'* ]]; then
     export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
     # Ohmyzsh
@@ -34,7 +34,7 @@ elif [[ $MYSHELL == *'zsh'* ]]; then
     fi
 
     # Zoxide
-    eval "$(zoxide init zsh)"
+    eval "$(zoxide init --cmd cd zsh)"
 fi
 
 

@@ -34,3 +34,7 @@
     # Lists all ongoing sessions
     alias tl='tmux list-sessions'
 
+
+# HTOP
+    alias htopu='htop --user=$USER'
+

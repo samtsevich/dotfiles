@@ -8,35 +8,35 @@ export _ZO_EXCLUDE_DIRS="/opt/intel/*:/work/opt/intel/*"
 
 # Zoxide and FZF
 if [[ $MYSHELL == *'bash'* ]]; then
+    MYSHELL='bash'
+
     # Shell
     # [[ -f ~/.dotfiles/ohmybash.sh ]] && source ~/.dotfiles/ohmybash.sh
     [[ -f ~/.dotfiles/common/bashit.sh ]] && source ~/.dotfiles/common/bashit.sh
 
-    # FZF
-    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-    # Zoxide
-    eval "$(zoxide init --cmd cd bash)"
 elif [[ $MYSHELL == *'zsh'* ]]; then
+    MYSHELL='zsh'
+
     export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+
     # Ohmyzsh
     [[ -f ~/.dotfiles/common/ohmyzsh.sh ]]  && source ~/.dotfiles/common/ohmyzsh.sh
 
-    # FZF
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+    # Homebrew
     if type brew &>/dev/null
     then
         FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
         autoload -Uz compinit
         compinit
     fi
-
-    # Zoxide
-    eval "$(zoxide init --cmd cd zsh)"
 fi
 
+
+# FZF
+[ -f ~/.fzf.$MYSHELL ] && source ~/.fzf.$MYSHELL
+
+# Zoxide
+eval "$(zoxide init --cmd cd $MYSHELL)"
 
 # Starship
 [[ -f ~/.dotfiles/common/starship.sh ]] && source ~/.dotfiles/common/starship.sh

@@ -22,7 +22,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 # Brew
   if [[ -d /home/linuxbrew/.linuxbrew ]]; then
-    export PATH="/home/linuxbrew/.linuxbrew:$PATH"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
 
   if type brew &>/dev/null; then

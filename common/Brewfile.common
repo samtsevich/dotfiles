@@ -1,0 +1,13 @@
+tap "homebrew/bundle"
+brew "bat"
+brew "fd"
+brew "fzf"
+brew "git"
+brew "lazygit"
+brew "lsd"
+brew "neovim"
+brew "ripgrep"
+brew "starship"
+brew "tmux"
+brew "zoxide"
+

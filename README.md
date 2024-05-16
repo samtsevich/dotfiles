@@ -10,22 +10,31 @@ To display icons in terminal or applications Fonts, I'm using [Nerd-Fonts](https
 
 ## Prerequested Software
 
-### Terminal
+### Homebrew (for Linux or macOS)
+Install [brew.sh](https://brew.sh) 
+and install packages for all kind of system
+```
+brew bundle --file=~/.dotfiles/common/Brewfile.common
+```
+
+Or install the following by hands
+
+#### Terminal
 * [iTerm 2](https://iterm2.com)
 
-### Oh My ZSH/BASH
+#### Oh My ZSH/BASH
 - [Oh My ZSH](https://github.com/ohmyzsh/ohmyzsh)
 or
 - [Oh My BASH](https://github.com/ohmybash/oh-my-bash)
 
-### TextEditor
+#### TextEditor
 * [Neovim](https://neovim.io) + [AstroNvim](https://astronvim.com)
 
-### Prompt
+#### Prompt
 * [Starship](https://starship.rs)
 
 
-### Additional
+#### Additional
 Install, pls
 * [FZF](https://github.com/junegunn/fzf)
 * OMZ Plugins
@@ -36,15 +45,17 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 * [Lsd](https://github.com/lsd-rs/lsd)
+* 
 
 
 ## Installation
 
-### Step 0. Clone
+### Step 0.1. Clone repository
 
 ```bash
 git clone https://github.com/samtsevich/dotfiles ~/.dotfiles
 ```
+
 
 ### Step 1. Shell
 

@@ -21,6 +21,10 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 # ==========
 
 # Brew
+  if [[ -d /home/linuxbrew/.linuxbrew ]]; then
+    export PATH="/home/linuxbrew/.linuxbrew:$PATH"
+  fi
+
   if type brew &>/dev/null; then
     if [[ $MYSHELL == *'bash'* ]]; then
       if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
@@ -43,7 +47,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
   fi
 
 # FZF
-  [ -f ~/.fzf.$MYSHELL ] && source ~/.fzf.$MYSHELL
+  eval "$(fzf --$MYSHELL)"
 
 # LazyGit
   alias lg='lazygit'
@@ -74,7 +78,8 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
   fi
 
 # Starship
-  [[ -f ~/.dotfiles/common/starship.sh ]] && source ~/.dotfiles/common/starship.sh
+  STARSHIP_INIT_FILE="$HOME/.dotfiles/common/starship.sh"
+  [[ -f $STARSHIP_INIT_FILE ]] && source $STARSHIP_INIT_FILE
 
 # TMUX
   # Attaches tmux to the last session; creates a new session if none exists.

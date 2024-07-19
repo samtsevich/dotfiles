@@ -16,6 +16,8 @@ $time\
 $line_break\
 $character"""
 
+# add_newline = true
+
 command_timeout = 1000
 
 # Shows an icon that should be included by zshrc script based on the distribution or os
@@ -53,7 +55,7 @@ truncation_symbol = "…/"
 truncate_to_repo = false
 
 [fill]
-symbol = " "
+symbol = "⋅"
 
 [jobs]
 symbol = ""
@@ -97,13 +99,12 @@ format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 symbol = " "
 
 [time]
-disabled = false
+disabled = true
 time_format = "%R"
 style = "bold white"
 format = " [$time]($style) "
 
 [username]
 format = "[$user]($style) "
-
 
 

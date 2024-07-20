@@ -88,6 +88,7 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
 [hostname]
+trim_at = "-workstation"
 format = "[$ssh_symbol$hostname]($style) "
 
 [memory_usage]

@@ -10,7 +10,8 @@ $git_metrics\
 $fill\
 $conda\
 $python\
-$cmd_durationration $jobs\
+$cmd_duration\
+$jobs\
 $hostname\
 $time\
 $line_break\
@@ -36,7 +37,8 @@ success_symbol = "[➜](bold green) "
 error_symbol = "[✗](bold red) "
 
 [cmd_duration]
-format = "[$duration]($style)"
+min_time = 1000
+format = " [$duration]($style)"
 style = "yellow"
 
 [conda]

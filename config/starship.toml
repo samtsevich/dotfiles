@@ -38,7 +38,7 @@ error_symbol = "[✗](bold red) "
 
 [cmd_duration]
 min_time = 1000
-format = " [$duration]($style)"
+format = " [$duration]($style) "
 style = "yellow"
 
 [conda]

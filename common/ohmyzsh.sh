@@ -78,7 +78,6 @@
         brew
         command-not-found
         extract
-        fd
         git
         gitfast
         macos
@@ -87,7 +86,7 @@
         pip
         python
         sublime
-        sublime-merge
+        # sublime-merge
         # thefuck
         tmux
         web-search

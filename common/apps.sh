@@ -94,3 +94,56 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 # Zoxide
   eval "$(zoxide init --cmd cd $MYSHELL)"
   export _ZO_EXCLUDE_DIRS="/opt/intel/*:/work/opt/intel/*"
+
+
+
+# ==========
+# 3. Updating Apps and packages
+# ==========
+
+# pip
+  alias pipup="pip list --outdated | sed -e '1,2d' | grep -v numpy | awk '{print $1}' | xargs -n1 pip install --upgrade"
+
+# Github Copilot
+  alias ghcup="gh extension upgrade --all"
+
+# UPDATE ALL
+  update_all_packages() {
+    # Ubuntu / Debian
+    if type apt-get &>/dev/null; then
+      sudo apt update
+      sudo apt upgrade -y
+      sudo apt autoremove -y
+      sudo apt autoclean -y
+    fi
+
+    # Pyenv
+    if type pyenv &>/dev/null; then
+      pyenv update
+    fi
+
+    # Brew
+    if type brew &>/dev/null; then
+      brew update
+      brew upgrade
+      brew cleanup
+    fi
+
+    # Cargo
+    if type cargo &>/dev/null; then
+      cargo install-update -a
+    fi
+
+    # Pip
+    if type pip &>/dev/null; then
+      pipup
+    fi
+
+    # Github Copilot (gh) extensions
+    if type gh &>/dev/null; then
+      ghcup
+    fi
+  }
+
+  alias allup="update_all_packages"
+

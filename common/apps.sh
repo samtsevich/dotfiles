@@ -102,7 +102,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 # ==========
 
 # pip
-  alias pipup="pip list --outdated | sed -e '1,2d' | grep -v numpy | awk '{print $1}' | xargs -n1 pip install --upgrade"
+  alias pipup="pip list --outdated | sed -e '1,2d' | grep -v numpy | awk '{print \$1}' | xargs -n1 pip install --upgrade"
 
 # Github Copilot
   alias ghcup="gh extension upgrade --all"
@@ -115,6 +115,11 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
       sudo apt upgrade -y
       sudo apt autoremove -y
       sudo apt autoclean -y
+    fi
+
+    # Oh my zsh
+    if type omz &>/dev/null; then
+      omz update
     fi
 
     # Pyenv

@@ -78,6 +78,7 @@
         brew
         command-not-found
         extract
+        fzf-tab
         git
         gitfast
         macos

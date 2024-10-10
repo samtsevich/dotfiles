@@ -87,8 +87,6 @@
         pip
         python
         sublime
-        # sublime-merge
-        # thefuck
         tmux
         web-search
         # https://github.com/MichaelAquilina/zsh-you-should-use
@@ -130,7 +128,4 @@
 # Oh My Zsh Plugins
     export UPDATE_ZSH_DAYS=1
     ZSH_CUSTOM_AUTOUPDATE_QUIET=true
-    # TheFuck plugin
-    # eval $(thefuck --alias)
-
 

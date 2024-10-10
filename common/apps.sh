@@ -45,7 +45,10 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
     fi
 
     # Setting python
-    export PATH="$(brew --prefix python@3.12)/libexec/bin:$PATH"
+    MAYBE_PYTHON_PATH="$(brew --prefix python@3.12)/libexec/bin"
+    if [[ -d $MAYBE_PYTHON_PATH ]]; then
+      export PATH="$MAYBE_PYTHON_PATH:$PATH"
+    fi
 
     # Setting alias to build tree of dependencies
     alias brewdeps="brew leaves | xargs brew deps --include-build --tree"

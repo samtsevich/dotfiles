@@ -125,7 +125,15 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 # ==========
 
 # pip
-  alias pipup="pip list --outdated | sed -e '1,2d' | grep -v numpy | awk '{print \$1}' | xargs -n1 pip install --upgrade"
+  update_all_pip_packages() {
+    OUTDATED_PACKAGES=`echo $(pip list --outdated | sed -e '1,2d' | awk '{printf $1" "}')`
+    # echo $OUTDATED_PACKAGES
+
+    if [[ $OUTDATED_PACKAGES ]]; then
+      pip list --outdated | sed -e '1,2d' | awk '{printf $1" "}' | xargs -n1 pip install --upgrade
+    fi
+  }
+  alias pipup="update_all_pip_packages"
 
 # UPDATE ALL
   update_all_packages() {

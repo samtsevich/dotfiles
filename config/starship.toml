@@ -67,6 +67,7 @@ number_threshold = 1
 format = "[$symbol]($style)"
 
 [git_branch]
+truncation_length = 24
 format = "[$symbol$branch]($style) "
 style = "bright-green"
 

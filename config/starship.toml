@@ -12,6 +12,7 @@ $conda\
 $python\
 $cmd_duration\
 $jobs\
+$shell\
 $hostname\
 $time\
 $line_break\
@@ -38,7 +39,7 @@ error_symbol = "[✗](bold red) "
 
 [cmd_duration]
 min_time = 1000
-format = " [$duration]($style) "
+format = "  [$duration]($style)"
 style = "yellow"
 
 [conda]
@@ -52,7 +53,7 @@ format = "at [$path]($style)[$read_only]($read_only_style) "
 style = "bold cyan"
 home_symbol = " ~"
 read_only = " "
-truncation_length = 2
+truncation_length = 3
 truncation_symbol = "…/"
 truncate_to_repo = false
 
@@ -66,6 +67,7 @@ number_threshold = 1
 format = "[$symbol]($style)"
 
 [git_branch]
+truncation_length = 24
 format = "[$symbol$branch]($style) "
 style = "bright-green"
 
@@ -89,17 +91,25 @@ style = "bright-black"
 
 [hostname]
 trim_at = "-workstation"
-format = "[$ssh_symbol$hostname]($style) "
+format = " [$ssh_symbol$hostname]($style) "
 
 [memory_usage]
 symbol = " "
 
 [python]
 symbol = ' '
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = ' [${symbol}${pyenv_prefix}(${version})( \[$virtualenv\])]($style)'
 
 [rust]
 symbol = " "
+
+[shell]
+format = ' [$indicator]($style)'
+fish_indicator = '󰈺 '
+powershell_indicator = '_'
+unknown_indicator = 'mystery shell'
+style = 'cyan bold'
+disabled = false
 
 [time]
 disabled = true
@@ -109,5 +119,3 @@ format = " [$time]($style) "
 
 [username]
 format = "[$user]($style) "
-
-

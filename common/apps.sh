@@ -26,6 +26,8 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
   fi
 
   if type brew &>/dev/null; then
+
+    # Bash
     if [[ $MYSHELL == *'bash'* ]]; then
       if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
         source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
@@ -34,11 +36,22 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
           [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
         done
       fi
+
+    # Zsh
     elif [[ $MYSHELL == *'zsh'* ]]; then
       FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
       autoload -Uz compinit
       compinit
     fi
+
+    # Setting python
+    MAYBE_PYTHON_PATH="$(brew --prefix python@3.12)/libexec/bin"
+    if [[ -d $MAYBE_PYTHON_PATH ]]; then
+      export PATH="$MAYBE_PYTHON_PATH:$PATH"
+    fi
+
+    # Setting alias to build tree of dependencies
+    alias brewdeps="brew leaves | xargs brew deps --include-build --tree"
   fi
 
 # Cargo
@@ -48,6 +61,12 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 # FZF
   eval "$(fzf --$MYSHELL)"
+
+# Github Copilot
+  if type gh &>/dev/null; then
+    eval "$(gh copilot alias -- $MYSHELL)"
+    alias ghcup="gh extension upgrade --all"
+  fi
 
 # LazyGit
   alias lg='lazygit'
@@ -77,6 +96,11 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
   fi
 
+# Speedtest-cli
+  if type speedtest-cli &>/dev/null; then
+    alias stc='speedtest-cli'
+  fi
+
 # Starship
   STARSHIP_INIT_FILE="$HOME/.dotfiles/common/starship.sh"
   [[ -f $STARSHIP_INIT_FILE ]] && source $STARSHIP_INIT_FILE
@@ -96,16 +120,20 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
   export _ZO_EXCLUDE_DIRS="/opt/intel/*:/work/opt/intel/*"
 
 
-
 # ==========
 # 3. Updating Apps and packages
 # ==========
 
 # pip
-  alias pipup="pip list --outdated | sed -e '1,2d' | grep -v numpy | awk '{print \$1}' | xargs -n1 pip install --upgrade"
+  update_all_pip_packages() {
+    OUTDATED_PACKAGES=`echo $(pip list --outdated | sed -e '1,2d' | awk '{printf $1" "}')`
+    # echo $OUTDATED_PACKAGES
 
-# Github Copilot
-  alias ghcup="gh extension upgrade --all"
+    if [[ $OUTDATED_PACKAGES ]]; then
+      pip list --outdated | sed -e '1,2d' | awk '{printf $1" "}' | xargs -n1 pip install --upgrade
+    fi
+  }
+  alias pipup="update_all_pip_packages"
 
 # UPDATE ALL
   update_all_packages() {
@@ -151,4 +179,3 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
   }
 
   alias allup="update_all_packages"
-

@@ -59,8 +59,48 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
     source $HOME/.cargo/env
   fi
 
+# EZA
+  alias ls="eza --icons=always --group-directories-first"
+
 # FZF
   eval "$(fzf --$MYSHELL)"
+  # --- setup fzf theme ---
+
+  fg="#CBE0F0"
+  bg="#011628"
+  bg_highlight="#143652"
+  purple="#B388FF"
+  blue="#06BCE4"
+  cyan="#2CF9ED"
+
+  export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
+
+  # -- Use fd instead of fzf --
+
+  export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+  show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
+
+  export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
+  export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+  # Advanced customization of fzf options via _fzf_comprun function
+  # - The first argument to the function is the name of the command.
+  # - You should make sure to pass the rest of the arguments to fzf.
+  _fzf_comprun() {
+    local command=$1
+    shift
+
+    case "$command" in
+      cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+      export|unset) fzf --preview "eval 'echo \${}'"         "$@" ;;
+      # ssh)          fzf --preview 'dig {}'                   "$@" ;;
+      *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
+    esac
+  }
+
 
 # Github Copilot
   if type gh &>/dev/null; then
@@ -72,7 +112,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
   alias lg='lazygit'
 
 # lsDeluxe
-  alias ls='lsd --group-directories-first'
+  # alias ls='lsd --group-directories-first'
   alias l='ls -l'
   alias la='ls -a'
   alias lla='ls -la'
@@ -115,6 +155,17 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
   # Lists all ongoing sessions
   alias tl='tmux list-sessions'
 
+# Yazi
+  function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+  }
+
+
 # Zoxide
   eval "$(zoxide init --cmd cd $MYSHELL)"
   export _ZO_EXCLUDE_DIRS="/opt/intel/*:/work/opt/intel/*"
@@ -134,6 +185,8 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
     fi
   }
   alias pipup="update_all_pip_packages"
+
+
 
 # UPDATE ALL
   update_all_packages() {

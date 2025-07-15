@@ -1,4 +1,4 @@
-MYSHELL=`echo $SHELL`
+MY_SHELL=`echo $SHELL`
 
 export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
@@ -6,12 +6,12 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 # 1. Prompts
 # ==========
 
-  if [[ $MYSHELL == *'bash'* ]]; then
-    MYSHELL='bash'
+  if [[ $MY_SHELL == *'bash'* ]]; then
+    MY_SHELL='bash'
     # [[ -f ~/.dotfiles/ohmybash.sh ]] && source ~/.dotfiles/ohmybash.sh
     [[ -f ~/.dotfiles/common/bashit.sh ]] && source ~/.dotfiles/common/bashit.sh
-  elif [[ $MYSHELL == *'zsh'* ]]; then
-    MYSHELL='zsh'
+  elif [[ $MY_SHELL == *'zsh'* ]]; then
+    MY_SHELL='zsh'
     export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
     [[ -f ~/.dotfiles/common/ohmyzsh.sh ]]  && source ~/.dotfiles/common/ohmyzsh.sh
   fi
@@ -28,7 +28,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
   if type brew &>/dev/null; then
 
     # Bash
-    if [[ $MYSHELL == *'bash'* ]]; then
+    if [[ $MY_SHELL == *'bash'* ]]; then
       if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
         source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
       else
@@ -38,7 +38,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
       fi
 
     # Zsh
-    elif [[ $MYSHELL == *'zsh'* ]]; then
+    elif [[ $MY_SHELL == *'zsh'* ]]; then
       FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
       autoload -Uz compinit
       compinit
@@ -60,10 +60,16 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
   fi
 
 # EZA
-  alias ls="eza --icons=always --group-directories-first"
+  if type eza &>/dev/null; then
+    alias ls="eza --icons=always --group-directories-first"
+  fi
 
 # FZF
-  eval "$(fzf --$MYSHELL)"
+  if [[ -d $HOME/.fzf ]]; then
+    source $HOME/.fzf.$MY_SHELL
+  fi
+
+  eval "$(fzf --$MY_SHELL)"
   # --- setup fzf theme ---
 
   fg="#CBE0F0"
@@ -104,7 +110,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 # Github Copilot
   if type gh &>/dev/null; then
-    eval "$(gh copilot alias -- $MYSHELL)"
+    eval "$(gh copilot alias -- $MY_SHELL)"
     alias ghcup="gh extension upgrade --all"
   fi
 
@@ -155,6 +161,11 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
   # Lists all ongoing sessions
   alias tl='tmux list-sessions'
 
+# UV python
+  if type uv &>/dev/null; then
+    eval "$(uv generate-shell-completion $MY_SHELL)"
+  fi
+
 # Yazi
   function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -167,7 +178,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 
 # Zoxide
-  eval "$(zoxide init --cmd cd $MYSHELL)"
+  eval "$(zoxide init --cmd cd $MY_SHELL)"
   export _ZO_EXCLUDE_DIRS="/opt/intel/*:/work/opt/intel/*"
 
 

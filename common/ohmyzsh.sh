@@ -81,6 +81,7 @@
         fzf-tab
         git
         gitfast
+        iterm2
         macos
         # https://github.com/zsh-users/zsh-history-substring-search
         history-substring-search
@@ -94,7 +95,8 @@
         # https://github.com/zsh-users/zsh-autosuggestions
         zsh-autosuggestions
         zsh-fzf-history-search
-        zsh-syntax-highlighting)
+        zsh-syntax-highlighting
+    )
 
     source $ZSH/oh-my-zsh.sh
 

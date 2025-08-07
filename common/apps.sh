@@ -122,7 +122,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
   alias l='ls -l'
   alias la='ls -a'
   alias lla='ls -la'
-  alias lt='ls --tree'
+  alias lt='ls --tree --level 2'
 
 # Nvim
   alias vi="nvim"
@@ -239,6 +239,10 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
     # Github Copilot (gh) extensions
     if type gh &>/dev/null; then
       ghcup
+    fi
+
+    if type uv &>/dev/null; then
+      uv self update
     fi
   }
 

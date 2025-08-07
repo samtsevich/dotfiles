@@ -5,15 +5,20 @@ $directory\
 $git_branch\
 $git_state\
 $git_status\
+$git_commit\
 $git_metrics\
 $fill\
 $conda\
 $python\
-$cmd_durationration $jobs\
+$cmd_duration\
+$jobs\
+$shell\
 $hostname\
 $time\
 $line_break\
 $character"""
+
+# add_newline = true
 
 command_timeout = 1000
 
@@ -23,12 +28,18 @@ format = '[$env_value](white) '
 variable = "STARSHIP_DISTRO"
 disabled = false
 
+[env_var.STARSHIP_DEVICE]
+format = '[$env_value](bold yellow) '
+variable = "STARSHIP_DEVICE"
+disabled = false
+
 [character]
 success_symbol = "[➜](bold green) "
 error_symbol = "[✗](bold red) "
 
 [cmd_duration]
-format = "[$duration]($style)"
+min_time = 1000
+format = "  [$duration]($style)"
 style = "yellow"
 
 [conda]
@@ -36,16 +47,18 @@ ignore_base = false
 format = "[$symbol$environment](dimmed green) "
 
 [directory]
-format = " [$path]($style)[$read_only]($read_only_style) "
-style = "light blue"
+# format = " [$path]($style)[$read_only]($read_only_style) "
+format = "at [$path]($style)[$read_only]($read_only_style) "
+# style = "light blue"
+style = "bold cyan"
 home_symbol = " ~"
 read_only = " "
-truncation_length = 2
+truncation_length = 3
 truncation_symbol = "…/"
 truncate_to_repo = false
 
 [fill]
-symbol = " "
+symbol = "⋅"
 
 [jobs]
 symbol = ""
@@ -54,8 +67,15 @@ number_threshold = 1
 format = "[$symbol]($style)"
 
 [git_branch]
+truncation_length = 24
 format = "[$symbol$branch]($style) "
-style = "bright-black"
+style = "bright-green"
+
+[git_commit]
+format = '[$tag]($style) '
+commit_hash_length = 4
+# tag_symbol = '🔖 '
+tag_disabled = false
 
 [git_metrics]
 disabled = false
@@ -70,25 +90,32 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
 [hostname]
-format = "[$ssh_symbol$hostname]($style) "
+trim_at = "-workstation"
+format = " [$ssh_symbol$hostname]($style) "
 
 [memory_usage]
 symbol = " "
 
 [python]
 symbol = ' '
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = ' [${symbol}${pyenv_prefix}(${version})( \[$virtualenv\])]($style)'
 
 [rust]
 symbol = " "
 
-[time]
+[shell]
+format = ' [$indicator]($style)'
+fish_indicator = '󰈺 '
+powershell_indicator = '_'
+unknown_indicator = 'mystery shell'
+style = 'cyan bold'
 disabled = false
+
+[time]
+disabled = true
+time_format = "%R"
 style = "bold white"
 format = " [$time]($style) "
 
 [username]
 format = "[$user]($style) "
-
-
-

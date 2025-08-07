@@ -78,23 +78,25 @@
         brew
         command-not-found
         extract
+        fzf-tab
         git
         gitfast
+        iterm2
         macos
         # https://github.com/zsh-users/zsh-history-substring-search
         history-substring-search
         pip
         python
         sublime
-        sublime-merge
-        thefuck
         tmux
         web-search
         # https://github.com/MichaelAquilina/zsh-you-should-use
         you-should-use
         # https://github.com/zsh-users/zsh-autosuggestions
         zsh-autosuggestions
-        zsh-syntax-highlighting)
+        zsh-fzf-history-search
+        zsh-syntax-highlighting
+    )
 
     source $ZSH/oh-my-zsh.sh
 
@@ -128,7 +130,4 @@
 # Oh My Zsh Plugins
     export UPDATE_ZSH_DAYS=1
     ZSH_CUSTOM_AUTOUPDATE_QUIET=true
-    # TheFuck plugin
-    eval $(thefuck --alias)
-
 

@@ -10,67 +10,75 @@ To display icons in terminal or applications Fonts, I'm using [Nerd-Fonts](https
 
 ## Prerequested Software
 
-### Terminal
+### Homebrew (for Linux or macOS)
+Install [brew.sh](https://brew.sh) 
+and install packages for all kind of system
+```
+brew bundle --file=~/.dotfiles/common/Brewfile.common
+```
+
+Or install the following by hands
+
+#### Terminal
 * [iTerm 2](https://iterm2.com)
 
-### Oh My ZSH/BASH
+#### Oh My ZSH/BASH
 - [Oh My ZSH](https://github.com/ohmyzsh/ohmyzsh)
 or
 - [Oh My BASH](https://github.com/ohmybash/oh-my-bash)
 
-### TextEditor
-* [Neovim](https://neovim.io)
-    - [Plugins](https://github.com/LunarVim/Neovim-from-scratch.git)
+#### TextEditor
+* [Neovim](https://neovim.io) + [AstroNvim](https://astronvim.com)
 
-
-### Prompt
+#### Prompt
 * [Starship](https://starship.rs)
 
+
+#### Additional
+Install, pls
+* [FZF](https://github.com/junegunn/fzf)
+* OMZ Plugins
+```bash
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/plugins/you-should-use
+git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_CUSTOM/plugins/autoupdate
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+* [Lsd](https://github.com/lsd-rs/lsd)
+* 
 
 
 ## Installation
 
-### Step 0. Clone
+### Step 0.1. Clone repository
 
-```
-cd
+```bash
 git clone https://github.com/samtsevich/dotfiles ~/.dotfiles
 ```
 
+
 ### Step 1. Shell
 
-#### Common for all. Must be added either into `~/.zshrc` or `~/.bashrc` file.
+<!-- #### Common for all. Must be added either into `~/.zshrc` or `~/.bashrc` file. -->
 
-```
-## Languages
-LANG=en_US.utf-8
-LC_ALL=en_US.utf-8
+#### If you use `zsh` then do the following:
 
-[[ -f ~/.dotfiles/aliases.sh ]] && source ~/.dotfiles/aliases.sh
-[[ -f ~/.dotfiles/path.sh ]] && source ~/.dotfiles/path.sh
-[[ -f ~/.dotfiles/starship.sh ]] && source ~/.dotfiles/starship.sh
-[[ -f ~/.dotfiles/local.sh ]] && source ~/.dotfiles/local.sh
-
+```bash
+ln -s ~/.dotfiles/.profile ~/.zshrc
 ```
 
-#### If you use `zsh` then add following lines into `~/.zshrc` file
-
-```
-[[ -f ~/.dotfiles/ohmyzsh.sh ]] && source ~/.dotfiles/ohmyzsh.sh
-```
-
-#### If you use `bash` then add following lines into `~/.bashrc` file
-```
-[[ -f ~/.dotfiles/ohmybash.sh ]] && source ~/.dotfiles/ohmybash.sh
+#### If you use `bash` then do the following:
+```bash
+ln -s ~/.dotfiles/.profile ~/.bashrc
 ```
 
-For the local environmnet of your machine – please, update `~/.dotfiles/local.sh` file. There you can add anything you want.
+For the local environment variables or exports – please, update `~/.dotfiles/local.sh` file. There you can add anything you want.
+
 
 ### Step 2. Config files
 
 - Gitconfig (do not forget to write personal data into `~/.gitconfig.local` file)
 - Starship
-
 
 ```
 ln -s ~/.dotfiles/.gitconfig  ~/.gitconfig

@@ -1,6 +1,13 @@
 MY_SHELL=`echo $SHELL`
 
-export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:" ]]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+if ! [[ "$PATH" =~ "$HOME/bin:" ]]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
 
 # ==========
 # 1. Prompts

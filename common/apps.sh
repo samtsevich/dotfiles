@@ -39,6 +39,7 @@ fi
   elif [[ $MY_SHELL == *'zsh'* ]]; then
     MY_SHELL='zsh'
     export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+    export ZCOMPDUMP=$ZSH/cache/.zcompdump-$HOST
     [[ -f ~/.dotfiles/common/ohmyzsh.sh ]]  && source ~/.dotfiles/common/ohmyzsh.sh
   fi
 

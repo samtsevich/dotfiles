@@ -8,6 +8,25 @@ if ! [[ "$PATH" =~ "$HOME/bin:" ]]; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# Set XDG_CACHE_HOME if not already set
+if [ -z "$XDG_CACHE_HOME" ]; then
+  export XDG_CACHE_HOME="$HOME/.cache"
+fi
+
+# Create XDG_CACHE_HOME directory if it doesn't exist
+if [ ! -d "$XDG_CACHE_HOME" ]; then
+  mkdir -p "$XDG_CACHE_HOME"
+fi
+
+# Set XDG_CONFIG_HOME if not already set
+if [ -z "$XDG_CONFIG_HOME" ]; then
+  export XDG_CONFIG_HOME="$HOME/.config"
+fi
+
+# Create XDG_CONFIG_HOME directory if it doesn't exist
+if [ ! -d "$XDG_CONFIG_HOME" ]; then
+  mkdir -p "$XDG_CONFIG_HOME"
+fi
 
 # ==========
 # 1. Prompts
@@ -20,6 +39,7 @@ fi
   elif [[ $MY_SHELL == *'zsh'* ]]; then
     MY_SHELL='zsh'
     export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+    export ZCOMPDUMP=$ZSH/cache/.zcompdump-$HOST
     [[ -f ~/.dotfiles/common/ohmyzsh.sh ]]  && source ~/.dotfiles/common/ohmyzsh.sh
   fi
 

@@ -68,7 +68,7 @@ fi
     elif [[ $MY_SHELL == *'zsh'* ]]; then
       FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
       autoload -Uz compinit
-      compinit
+      compinit -d $ZSH_COMPDUMP
     fi
 
     # Setting python

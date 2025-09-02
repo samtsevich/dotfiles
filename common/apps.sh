@@ -92,10 +92,6 @@ fi
   fi
 
 # FZF
-  if [[ -d $HOME/.fzf ]]; then
-    source $HOME/.fzf.$MY_SHELL
-  fi
-
   eval "$(fzf --$MY_SHELL)"
   # --- setup fzf theme ---
 

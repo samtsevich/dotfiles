@@ -1,3 +1,6 @@
+# Disabling auto title to be able to rename that easily
+DISABLE_AUTO_TITLE="true"
+
 MY_SHELL=`echo $SHELL`
 
 # User specific environment

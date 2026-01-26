@@ -134,9 +134,8 @@ fi
   }
 
 
-# Github Copilot
+# Github
   if type gh &>/dev/null; then
-    eval "$(gh copilot alias -- $MY_SHELL)"
     alias ghcup="gh extension upgrade --all"
   fi
 

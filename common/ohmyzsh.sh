@@ -77,14 +77,18 @@
         autoupdate
         brew
         command-not-found
+        docker
         extract
         fzf-tab
         git
         gitfast
-        iterm2
-        macos
         # https://github.com/zsh-users/zsh-history-substring-search
         history-substring-search
+        iterm2
+        macos
+        npm
+        # https://github.com/ocodo/ollama_zsh_completion
+        ollama
         pip
         python
         sublime

@@ -51,26 +51,6 @@ chmod +x tests/test.sh
 ### 9. README Validation
 - Ensures README exists and contains required sections
 
-## GitHub Actions
-
-Tests run automatically on:
-- Push to `main`, `master`, or `develop` branches
-- Pull requests to these branches
-- Manual workflow dispatch
-
-### Test Matrix
-
-Tests run on:
-- **OS**: Ubuntu (Linux), macOS
-- **Shells**: bash, zsh
-
-### Jobs
-
-1. **test** - Main test suite
-2. **shellcheck** - Shell script linting
-3. **integration** - Integration tests with real shell environments
-4. **markdown** - README validation
-
 ## Required Dependencies
 
 ### Minimal (for basic tests)
@@ -94,19 +74,7 @@ sudo apt-get install shellcheck lua5.4
 pip install tomli
 ```
 
-## CI/CD Status
-
-You can see the test status in the repository's Actions tab or by adding a badge to README:
-
-```markdown
-![Tests](https://github.com/samtsevich/dotfiles/workflows/Dotfiles%20Tests/badge.svg)
-```
-
 ## Troubleshooting
-
-### Test fails locally but passes in CI
-- Check if you have the required dependencies installed
-- Some tests are skipped if dependencies are missing
 
 ### "Cannot source" warnings
 - These are expected if Oh My Zsh or other dependencies aren't installed
@@ -114,4 +82,5 @@ You can see the test status in the repository's Actions tab or by adding a badge
 
 ### ShellCheck warnings
 - Some warnings are expected and acceptable for dotfiles
-- The workflow ignores certain checks (SC1090, SC1091, SC2148)
+- Common ignored checks: SC1090, SC1091, SC2148
+

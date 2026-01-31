@@ -1,7 +1,5 @@
 # Dotfiles
 
-![Tests](https://github.com/samtsevich/dotfiles/workflows/Dotfiles%20Tests/badge.svg)
-
 Hi, there! 👋
 
 This Repository Dotfiles contain my personal config files. Here you'll find configs, customizations, themes, and whatever I need to personalize my Linux and mac OS experience.

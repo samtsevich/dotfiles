@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# api_keys.sh.example
+# Copy this file to api_keys.sh and add your API keys
+# cp api_keys.sh.example api_keys.sh
+
+# IMPORTANT: Never commit api_keys.sh to version control!
+# It's already in .gitignore
+
+# Example: OpenAI API Key
+# export OPENAI_API_KEY="sk-..."
+
+# Example: Anthropic API Key
+# export ANTHROPIC_API_KEY="sk-ant-..."
+
+# Example: GitHub Token
+# export GITHUB_TOKEN="ghp_..."
+
+# Example: AWS Credentials
+# export AWS_ACCESS_KEY_ID="..."
+# export AWS_SECRET_ACCESS_KEY="..."
+
+# Add your API keys below:

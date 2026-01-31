@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# local.sh.example
+# Copy this file to local.sh and customize with your personal settings
+# cp local.sh.example local.sh
+
+# Example: Add custom aliases
+# alias myproject="cd ~/Projects/my-project"
+
+# Example: Add custom environment variables
+# export MY_CUSTOM_VAR="value"
+
+# Example: Add custom PATH entries
+# export PATH="$HOME/my-custom-bin:$PATH"
+
+# Example: Machine-specific settings
+# if [[ $(hostname) == "my-macbook" ]]; then
+#     export WORK_DIR="$HOME/Work"
+# fi
+
+# Add your personal configurations below:

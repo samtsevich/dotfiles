@@ -1,2 +1,5 @@
 **/.DS_Store
 
+# Local configuration files (personal settings)
+local.sh
+api_keys.sh

@@ -167,11 +167,6 @@ fi
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
   fi
 
-# Speedtest-cli
-  if type speedtest-cli &>/dev/null; then
-    alias stc='speedtest-cli'
-  fi
-
 # Starship
   STARSHIP_INIT_FILE="$HOME/.dotfiles/common/starship.sh"
   [[ -f $STARSHIP_INIT_FILE ]] && source $STARSHIP_INIT_FILE

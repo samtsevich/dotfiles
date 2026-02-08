@@ -17,6 +17,10 @@ cursor-style = bar
 background-opacity = 0.8
 background-blur-radius = 15
 
+# Window padding (inner margins)
+window-padding-x = 12
+window-padding-y = 12
+
 # ============================================================================
 # COLORS
 # ============================================================================

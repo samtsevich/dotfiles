@@ -19,7 +19,7 @@ background-blur-radius = 15
 
 # Window padding (inner margins)
 window-padding-x = 12
-window-padding-y = 12
+# window-padding-y = 12
 
 # ============================================================================
 # COLORS
@@ -32,7 +32,10 @@ selection-foreground = CBE0F0
 # MACOS SETTINGS
 # ============================================================================
 macos-option-as-alt = true
-macos-titlebar-style = transparent
+# macos-titlebar-style = transparent
+macos-titlebar-style = tabs
+macos-window-buttons = hidden
+macos-non-native-fullscreen = true
 
 # ============================================================================
 # KEYBINDINGS

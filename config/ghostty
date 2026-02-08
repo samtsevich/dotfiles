@@ -1,32 +1,43 @@
-# Font and size (direct mapping)
+# ============================================================================
+# FONT SETTINGS
+# ============================================================================
 font-family = JetBrainsMono Nerd Font Mono
 font-size = 20
 
-# Cursor (SteadyBar -> bar)
-cursor-style = bar
-
+# ============================================================================
+# APPEARANCE
+# ============================================================================
 # Theme (Catppuccin Mocha built-in)
 theme = Catppuccin Mocha
 
-# Background transparency
-background-opacity = 0.8
+# Cursor style
+cursor-style = bar
 
-# Selection (from colors)
+# Background transparency and blur
+background-opacity = 0.8
+background-blur-radius = 15
+
+# ============================================================================
+# COLORS
+# ============================================================================
+# Selection colors
 selection-background = 033259
 selection-foreground = CBE0F0
 
-background-blur-radius = 15
-
-# Keybindings (correct syntax: keybind = MODIFIERS+KEY=ACTION)
-# keybind = A-Right=send \x1bf
-# keybind = A-Left=send \x1bb
-
+# ============================================================================
+# MACOS SETTINGS
+# ============================================================================
 macos-option-as-alt = true
 macos-titlebar-style = transparent
 
-# Rename tab
+# ============================================================================
+# KEYBINDINGS
+# ============================================================================
+# Tab management
 keybind = super+shift+t=prompt_tab_title
-
-# Move tab left/right
 keybind = super+shift+left=move_tab:-1
 keybind = super+shift+right=move_tab:1
+
+# Word navigation (uncomment if needed)
+# keybind = alt+right=text:\x1bf
+# keybind = alt+left=text:\x1bb

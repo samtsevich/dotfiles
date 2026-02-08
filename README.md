@@ -27,6 +27,7 @@ Or install the following by hand
 #### Terminal
 * [iTerm 2](https://iterm2.com)
 * [WezTerm](https://wezfurlong.org/wezterm/)
+* [Ghostty](https://ghostty.org)
 
 #### Oh My ZSH/BASH
 - [Oh My ZSH](https://github.com/ohmyzsh/ohmyzsh)
@@ -120,10 +121,18 @@ cp ~/.dotfiles/api_keys.sh.example ~/.dotfiles/api_keys.sh
 - Gitconfig (do not forget to write personal data into `~/.gitconfig.local` file)
 - Starship prompt
 - WezTerm (optional)
+- Ghostty (optional)
 
 ```bash
 ln -s ~/.dotfiles/.gitconfig  ~/.gitconfig
 ln -s ~/.dotfiles/config/starship.toml  ~/.config/starship.toml
+
+# if you are using WezTerm terminal
 ln -s ~/.dotfiles/config/wezterm.lua  ~/.wezterm.lua
+
+# if you're using Ghostty terminal
+mkdir -p ~/.config/ghostty && ln -s ~/.dotfiles/config/ghostty ~/.config/ghostty/config
 ```
+
+**Note:** After creating the symlink, restart Ghostty for the configuration to take effect. You can also reload the config at runtime with `Cmd+Shift+R` (macOS) or `Ctrl+Shift+R` (Linux).
 

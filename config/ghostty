@@ -1,0 +1,32 @@
+# Font and size (direct mapping)
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 20
+
+# Cursor (SteadyBar -> bar)
+cursor-style = bar
+
+# Theme (Catppuccin Mocha built-in)
+theme = Catppuccin Mocha
+
+# Background transparency
+background-opacity = 0.8
+
+# Selection (from colors)
+selection-background = 033259
+selection-foreground = CBE0F0
+
+background-blur-radius = 15
+
+# Keybindings (correct syntax: keybind = MODIFIERS+KEY=ACTION)
+# keybind = A-Right=send \x1bf
+# keybind = A-Left=send \x1bb
+
+macos-option-as-alt = true
+macos-titlebar-style = transparent
+
+# Rename tab
+keybind = super+shift+t=prompt_tab_title
+
+# Move tab left/right
+keybind = super+shift+left=move_tab:-1
+keybind = super+shift+right=move_tab:1

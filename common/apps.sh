@@ -1,3 +1,6 @@
+# Disabling auto title to be able to rename that easily
+DISABLE_AUTO_TITLE="true"
+
 MY_SHELL=`echo $SHELL`
 
 # User specific environment
@@ -92,6 +95,11 @@ fi
   fi
 
 # FZF
+  # On some machines it is installed at $HOME directory
+  if [[ -d $HOME/.fzf ]]; then
+    export PATH="$PATH:$HOME/.fzf/bin"
+  fi
+
   eval "$(fzf --$MY_SHELL)"
   # --- setup fzf theme ---
 
@@ -131,9 +139,8 @@ fi
   }
 
 
-# Github Copilot
+# Github
   if type gh &>/dev/null; then
-    eval "$(gh copilot alias -- $MY_SHELL)"
     alias ghcup="gh extension upgrade --all"
   fi
 
@@ -163,11 +170,6 @@ fi
     eval "$(pyenv virtualenv-init -)"
 
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-  fi
-
-# Speedtest-cli
-  if type speedtest-cli &>/dev/null; then
-    alias stc='speedtest-cli'
   fi
 
 # Starship

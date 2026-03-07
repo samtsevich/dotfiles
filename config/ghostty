@@ -1,0 +1,50 @@
+# ============================================================================
+# FONT SETTINGS
+# ============================================================================
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 20
+
+# ============================================================================
+# APPEARANCE
+# ============================================================================
+# Theme (Catppuccin Mocha built-in)
+theme = Catppuccin Mocha
+
+# Cursor style
+cursor-style = bar
+
+# Background transparency and blur
+background-opacity = 0.8
+background-blur-radius = 15
+
+# Window padding (inner margins)
+window-padding-x = 12
+# window-padding-y = 12
+
+# ============================================================================
+# COLORS
+# ============================================================================
+# Selection colors
+selection-background = 033259
+selection-foreground = CBE0F0
+
+# ============================================================================
+# MACOS SETTINGS
+# ============================================================================
+macos-option-as-alt = true
+# macos-titlebar-style = transparent
+macos-titlebar-style = tabs
+macos-window-buttons = hidden
+macos-non-native-fullscreen = true
+
+# ============================================================================
+# KEYBINDINGS
+# ============================================================================
+# Tab management
+keybind = super+shift+t=prompt_tab_title
+keybind = super+shift+left=move_tab:-1
+keybind = super+shift+right=move_tab:1
+
+# Word navigation (uncomment if needed)
+# keybind = alt+right=text:\x1bf
+# keybind = alt+left=text:\x1bb

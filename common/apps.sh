@@ -95,6 +95,11 @@ fi
   fi
 
 # FZF
+  # On some machines it is installed at $HOME directory
+  if [[ -d $HOME/.fzf ]]; then
+    export PATH="$PATH:$HOME/.fzf/bin"
+  fi
+
   eval "$(fzf --$MY_SHELL)"
   # --- setup fzf theme ---
 

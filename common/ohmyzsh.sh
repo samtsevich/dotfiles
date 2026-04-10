@@ -93,6 +93,7 @@
         python
         sublime
         tmux
+        uv
         web-search
         # https://github.com/MichaelAquilina/zsh-you-should-use
         you-should-use

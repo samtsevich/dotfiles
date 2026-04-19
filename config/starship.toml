@@ -84,6 +84,7 @@ disabled = false
 format = '([\[$conflicted$deleted$renamed$modified$staged$untracked\]]($style) )'
 # format = '([\[$all_status$ahead_behind\]]($style) )'
 style = "cyan"
+use_git_executable = true
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '

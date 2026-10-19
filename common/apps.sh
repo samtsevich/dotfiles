@@ -10,6 +10,10 @@ fi
 if ! [[ "$PATH" =~ "$HOME/bin:" ]]; then
     PATH="$HOME/bin:$PATH"
 fi
+if ! [[ "$PATH" =~ "$HOME/.cache/.bun/bin:" ]]; then
+    PATH="$HOME/.cache/.bun/bin:$PATH"
+fi
+
 
 # Set XDG_CACHE_HOME if not already set
 if [ -z "$XDG_CACHE_HOME" ]; then

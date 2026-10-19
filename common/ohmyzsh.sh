@@ -89,6 +89,7 @@
         npm
         # https://github.com/ocodo/ollama_zsh_completion
         ollama
+        opencode
         pip
         python
         sublime

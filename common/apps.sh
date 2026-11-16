@@ -3,16 +3,21 @@ DISABLE_AUTO_TITLE="true"
 
 MY_SHELL=`echo $SHELL`
 
+# Add a directory to PATH only if it exists and is not already present
+path_prepend() {
+    local dir="$1"
+    [ -d "$dir" ] || return 0
+    case ":$PATH:" in
+        *":$dir:"*) ;;
+        *) PATH="$dir:$PATH" ;;
+    esac
+    export PATH
+}
+
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:" ]]; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-if ! [[ "$PATH" =~ "$HOME/bin:" ]]; then
-    PATH="$HOME/bin:$PATH"
-fi
-if ! [[ "$PATH" =~ "$HOME/.cache/.bun/bin:" ]]; then
-    PATH="$HOME/.cache/.bun/bin:$PATH"
-fi
+path_prepend "$HOME/.local/bin"
+path_prepend "$HOME/bin"
+path_prepend "$HOME/.cache/.bun/bin"
 
 
 # Set XDG_CACHE_HOME if not already set
@@ -78,11 +83,14 @@ fi
       compinit -d $ZSH_COMPDUMP
     fi
 
-    # Setting python
-    MAYBE_PYTHON_PATH="$(brew --prefix python@3.12)/libexec/bin"
-    if [[ -d $MAYBE_PYTHON_PATH ]]; then
-      export PATH="$MAYBE_PYTHON_PATH:$PATH"
-    fi
+    # Setting python - use first available brew python version
+    for pyver in python@3.12 python@3.11 python@3.10 python; do
+        MAYBE_PYTHON_PATH="$(brew --prefix "$pyver" 2>/dev/null)/libexec/bin"
+        if [[ -d $MAYBE_PYTHON_PATH ]]; then
+          export PATH="$MAYBE_PYTHON_PATH:$PATH"
+          break
+        fi
+    done
 
     # Setting alias to build tree of dependencies
     alias brewdeps="brew leaves | xargs brew deps --include-build --tree"
@@ -170,10 +178,18 @@ fi
   if [[ -d $PYENV_ROOT ]]; then
     export PYENV_ROOT=$PYENV_ROOT
     command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
 
-    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    # Lazy load pyenv: initialize only on first use to speed up shell startup.
+    # To revert to eager initialization, replace this block with:
+    #   eval "$(pyenv init -)"
+    #   eval "$(pyenv virtualenv-init -)"
+    pyenv() {
+        unset -f pyenv
+        eval "$(pyenv init -)"
+        eval "$(pyenv virtualenv-init -)"
+        export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+        pyenv "$@"
+    }
   fi
 
 # Starship

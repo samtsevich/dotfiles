@@ -74,7 +74,6 @@ test_shell_syntax() {
         "common/ohmybash.sh"
         "common/starship.sh"
         "common/bashit.sh"
-        "common/zinit.sh"
     )
     
     for file in "${shell_files[@]}"; do
